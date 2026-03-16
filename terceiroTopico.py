@@ -99,7 +99,46 @@ def calcular_imposto() :
 
 # ### 5. Escreva um programa Python que ordena três números em ordem crescente.
 
+def ordenar_numeros() :
+    n1 = int(input("Informe o primeiro numero:"))
+    n2 = int(input("Informe o segundo numero:"))
+    n3 = int(input("Informe o terceiro numero:"))
+    if(n1 > n2 and n1 > n3) :
+        return n1
+    elif(n2 > n1 and n2 > n3) :
+        return n2
+    else:
+        return n3
+
+print(ordenar_numeros())
+
 # ### 6. Escreva um programa Python que simula um jogo de pedra-papel-tesoura entre dois jogadores.
+
+def pedra_papel_tesoura() :
+    primeira_jogada = input("Informe a primeira jogada: ")
+    segunda_jogada = input("Informe a segunda jogada: ")
+    if(primeira_jogada == "papel" and segunda_jogada == "tesoura") :
+        return "Jogador 2 venceu esta rodada"
+    elif(primeira_jogada == "papel" and segunda_jogada == "pedra") :
+        return "Jogador 1 venceu esta rodada"
+    elif(primeira_jogada == "papel" and segunda_jogada == "papel") :
+        return "Ocorreu Empate...Jogue novamente"
+    elif(primeira_jogada == "pedra" and segunda_jogada == "pedra") :
+        return "Ocorreu Empate...Jogue novamente"
+    elif(primeira_jogada == "pedra" and segunda_jogada == "papel") :
+        return "Jogador 2 venceu esta rodada"
+    elif(primeira_jogada == "pedra" and segunda_jogada == "tesoura") :
+        return "Jogador 1 venceu esta rodada"
+    elif(primeira_jogada == "tesoura" and segunda_jogada == "pedra") :
+        return "Jogador 2 venceu esta rodada"
+    elif(primeira_jogada == "tesoura" and segunda_jogada == "papel") :
+        return "Jogador 1 venceu esta rodada"
+    elif(primeira_jogada == "tesoura" and segunda_jogada == "tesoura") :
+        return "Ocorreu Empate...Jogue novamente"
+    else : 
+        return "Palavra inválida. Só é válido entradas com 'pedra', 'papel' ou 'tesoura'"
+
+print(pedra_papel_tesoura())
 
 # ### 7. Detetive: Faça um programa que faça 5 perguntas para uma pessoa sobre um crime. As perguntas são:
 
@@ -108,6 +147,36 @@ def calcular_imposto() :
 #     • Mora perto da vítima? [S/N]
 #     • Tinha algum dívida com a vítima? [S/N]
 #     • Já trabalhou com a vítima? [S/N]
+
+#%%
+
+def crime_answers() :
+    perguntas = ["Telefonou para a vítima? [S/N]"
+    ,"Esteve no local do crime? [S/N]"
+    ," Mora perto da vítima? [S/N]"
+    ,"Tinha algum dívida com a vítima? [S/N]"
+    ,"Já trabalhou com a vítima? [S/N]"]
+
+    sim = 0
+    for pergunta in perguntas:
+        if(input(pergunta) == "S") :
+            sim += 1
+
+    if(sim == 1):
+        return "Inocente"
+    elif(sim == 2):
+        return "Suspeito"
+    elif(sim == (3 or 4)):
+        return "Cumplice"
+    elif(sim >= 5):
+        return "Assassino"
+    else :
+        return "Inocente"
+
+
+print(crime_answers())
+        
+
 
 #     O programa deve no final emitir uma classificação sobre a participação da pessoa no crime.
 #     Se a pessoa responder positivamente a 2 questões ela deve ser classificada como “Suspeita”.
