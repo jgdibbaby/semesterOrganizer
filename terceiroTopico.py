@@ -1,0 +1,130 @@
+# Tópico 03 - Exercícios de Fixação
+
+### 1. Implemente um seletor de canais para informar que canal a pessoa está assistindo, sendo: -->
+
+def search_channel() :
+    canal = int(input("Digite o canal que deseja assistir:"))
+    if (canal == 2) :
+        return "Você esta assistindo o canal BANDEIRANTES"
+    elif (canal == 4) :
+        return "Você esta assistindo o canal SBT"
+    elif (canal == 6) :
+        return "Você esta assistindo o canal CNT"
+    elif (canal == 7) :
+        return "Você esta assistindo o canal RECORD"
+    elif (canal == 9) :
+        return "Você esta assistindo o canal CULTURA"
+    elif (canal == 12) :
+        return "Você esta assistindo o canal GLOBO"
+    else:
+        return "O numero informado não se refere a um canal válido..."
+
+print (search_channel())
+
+# 2. Um estabelecimento, fornece uma comissão progressiva aos seus vendedores:
+#
+#     a. 5%, para vendas até R$ 100,00
+#     b. 6% para vendas até R$ 500,00
+#     c. 7% para vendas até R$ 1000,00
+#     d. 8% para vendas acima de R$ 1000,00
+#
+# Implemente um algoritmo que calcule a comissão do vendedor.
+
+def calcular_comissao() :
+    valor_vendido = float(input("Digite o valor da comissao: "))
+    if(valor_vendido <= 100) :
+
+        return "O valor de comissão para esse funcionario sera no valor de R$" + str(valor_vendido * 0.05)
+    elif(valor_vendido <= 500) :
+        return "O valor de comissão para esse funcionario sera no valor de R$" + str(valor_vendido * 0.06)
+    elif(valor_vendido <= 1000) :
+        return "O valor de comissão para esse funcionario sera no valor de R$" + str(valor_vendido * 0.07)
+    elif(valor_vendido > 1000) :
+        return "O valor de comissão para esse funcionario sera no valor de R$" + str(valor_vendido * 0.08)
+    else:
+        return "Valor inválido!"
+
+print(calcular_comissao())
+
+### 3. A partir de três notas de um aluno e informe o conceito a partir da média:
+
+#     <!-- Média de aproveitamento Conceito
+#     Entre 9.0 e 10.0                A
+#     Entre 7.5 e 9.0                 B
+#     Entre 6.0 e 7.5                 C
+#     Entre 4.0 e 6.0                 D
+#     Entre 4.0 e zero                E
+
+#     Caso, o conceito seja abaixo de C, indique reprovado, caso contrário aprovado. -->
+
+def conceito_nota() :
+    nota_aluno = float(input("Digite a nota do aluno: "))
+    if (nota_aluno >= 9.0 and nota_aluno <= 10.0 ) :
+        return "A | Aluno Aprovado"
+    elif (nota_aluno >= 7.5 and nota_aluno <= 9.0 ) :
+        return "B | Aluno Aprovado"
+    elif (nota_aluno >= 6.0 and nota_aluno <= 7.5 ) :
+        return "C | Aluno Reprovado"
+    elif (nota_aluno >= 4.0 and nota_aluno <= 6.0 ) :
+        return "D | Aluno Reprovado"
+    elif (nota_aluno >= 4.0 and nota_aluno <= 0 ) :
+        return "E | Aluno Reprovado"
+    else :
+        return "Nota Inválida! "
+
+print(conceito_nota())
+
+# ### 4. Informe o imposto a recolher de um salário, seguindo a tabela abaixo:
+
+#           Salário             IRPF
+#     Até R$1.903,98            Isento
+#     De R$1.903,99 até R$2.826,65    7,5%
+#     De R$2.826,66 até R$3.751,05    15%
+#     De R$3.751,06 até R$4.664,68    22,5%
+
+def calcular_imposto() :
+    valor_declarado = float(input("Digite o valor de declarado: "))
+    if(valor_declarado < 1.903,98) :
+        return "Você esta ausento ao pagamento do imposto de renda"
+    elif (valor_declarado >= 1.903,99 and valor_declarado <= 2.826,65):
+        return "Voce deve realizar o pagamento de R$", str(valor_declarado * 0.05)
+    elif (valor_declarado >= 1.903,99 and valor_declarado <= 2.826,65) :
+        return "Você esta ausento ao pagamento do imposto de renda"
+    elif (valor_declarado >= 1.903,99 and valor_declarado <= 2.826,65) :
+        return "Você esta ausento ao pagamento do imposto de renda"
+    elif (valor_declarado >= 1.903,99 and valor_declarado <= 2.826,65) :
+        return "Você esta ausento ao pagamento do imposto de renda"
+    else:
+        return "Valor inválido para definição do IR"
+
+# ### 5. Escreva um programa Python que ordena três números em ordem crescente.
+
+# ### 6. Escreva um programa Python que simula um jogo de pedra-papel-tesoura entre dois jogadores.
+
+# ### 7. Detetive: Faça um programa que faça 5 perguntas para uma pessoa sobre um crime. As perguntas são:
+
+#     • Telefonou para a vítima? [S/N]
+#     • Esteve no local do crime? [S/N]
+#     • Mora perto da vítima? [S/N]
+#     • Tinha algum dívida com a vítima? [S/N]
+#     • Já trabalhou com a vítima? [S/N]
+
+#     O programa deve no final emitir uma classificação sobre a participação da pessoa no crime.
+#     Se a pessoa responder positivamente a 2 questões ela deve ser classificada como “Suspeita”.
+#     Entre 3 e 4 como “Cúmplice” e 5 como “Assassino“.
+#     Caso contrário, ele será classificado como “Inocente“.
+
+# ### 8. Elabore um sistema que recomende o tipo de roupa para um evento:
+
+#     • O evento é profissional ou lazer?
+#     • É com amigos ou família?
+#     • Faz calor ou frio?
+#     • O evento é em uma cachara, cidade ?
+#     • O local fechado ou aberto?
+
+#     Baseado nestas respostas, criar uma estrutura de seleção capaz de indicar desde um terno até bermuda e calção.
+#     Fique livre para propor mais perguntas ou até mesmo outro sistema de recomendação (viagem, esporte, filme, musica, etc)
+
+
+
+

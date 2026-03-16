@@ -83,14 +83,14 @@ print(numero_par())
 
     # ### 8. Informe se um número é múltiplo de um número N qualquer
 
-def multipleNumber() :
+def multiple_number() :
     n1 = int(input("Informe o numero:"))
     if( n1 % 2 == 0) :
         return "Numero Multiplo"
     else:
         return "Numero Näo Multiplo"
 
-print(multipleNumber())
+print(multiple_number())
 
 
 
@@ -128,7 +128,7 @@ print (login())
 
 ### 12. Informe se uma pessoa tem idade para votar a partir de seu ano de nascimento
 
-def podeVotar() :
+def pode_votar() :
     anoAtual = 2026
     anoNascimento = int(input("Informe o ano de nascimento :"))
     if(anoAtual - anoNascimento >= 16) :
@@ -136,7 +136,7 @@ def podeVotar() :
     else :
         return "Voce nao pode votar porque ainda tem", anoAtual - anoNascimento ,"Anos"
 
-print (podeVotar())
+print (pode_votar())
 
 
 ### 13. Informe se uma pessoa pode doar sangue (entre 18 e 59 anos)
