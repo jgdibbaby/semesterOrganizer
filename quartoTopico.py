@@ -2,13 +2,51 @@
 
 ### 1. Escreva um programa que exiba os múltiplos de 3 de 0 a 100.
 
-### 2. Escreva um programa que faça a contagem regressiva de 10 a 0.
+def multiplos_de_3() :
+    for i in range(0, 100) :
+        if(i % 3 == 0) :
+            print(i)
 
-### 3. Escreva um programa que calcule a soma dos números ímpares de 1 a 100.
+print(multiplos_de_3())
 
-### 4. Escreva um programa que gere um número aleatório entre 1 e 100 e peça para o usuário adivinhá-lo.
+# ### 2. Escreva um programa que faça a contagem regressiva de 10 a 0.
+
+def contagem_regressiva() :
+  for i in range(10,0) :
+    print(i)
+
+print(contagem_regressiva())
+
+# ### 3. Escreva um programa que calcule a soma dos números ímpares de 1 a 100.
+
+def soma_impar() :
+  for i in range(0,100):
+    if(i % 2 != 0) :
+      print(i + i)
+
+print(soma_impar())
+
+# ### 4. Escreva um programa que gere um número aleatório entre 1 e 100 e peça para o usuário adivinhá-lo.
+import random
+
+def adivinhar_numero() :
+    chute = int(input("Me diga o número que será impresso ?"))
+    numero_aleatorio = random.randint(1, 100)
+    if(chute == numero_aleatorio) :
+        print("Você acertou!")
+    else:
+        print("Você errou!")
+
+print(adivinhar_numero())
 
 ### 5. Escreva um programa que peça um número inteiro e exiba a sua tabuada de multiplicação de 1 a 10.
+
+def number_mult():
+  numero_solicitado = int(input("Digite um número para visualizar a sua tabuada: "))
+  for i in range(1,10):
+    print(numero_solicitado * i)
+
+print(number_mult())
 
 ### 6. Escreva um programa que solicite um número inteiro e calcule a soma de seus dígitos.
 
