@@ -6,7 +6,16 @@ def imprimir() :
     for i in range(number) :
         print(i)
 
+        
+
 ## 2. Imprima os números pares de 0 a 1000
+
+def imprimir_pares():
+    for i in range(0,1000):
+        if(i % 2 == 0):
+            return i
+
+print(imprimir_pares())
 
 ## 3.Calcule o fatorial de um número N
 
