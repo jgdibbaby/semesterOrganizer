@@ -15,5 +15,3 @@ while escolha != "0":
     print("Sacar")
   elif escolha == "4":
     print("Extrato")
-
-  "oi"
