@@ -16,4 +16,8 @@ while escolha != "0":
   elif escolha == "4":
     print("Extrato")
 
+<<<<<<< HEAD
 ##teste 
+=======
+  "oi"
+>>>>>>> 9068e5ab6415f1e4c1586fceeeedbe775c40d92c
