@@ -28,7 +28,7 @@ while True:
     usuario_cliente = input("Informe o usuario:")
     senha_cliente = input("Informe a senha:")
     if usuario_cliente not in db:
-      print("Usuario nao encontrado")
+      print("Usuário não encontrado")
       continue
     else:
       if senha_cliente != dados[usuario_cliente]["senha"]:
