@@ -1,11 +1,10 @@
 import pickle
 import os
-import time
 
-db = 'database.pkl'
+db = "database.pkl"
 
-login = "admin"
-senha_gerente = "123"
+login_g = "admin"
+senha_g = "123"
 
 tentativa = 0
 
@@ -24,12 +23,13 @@ else:
 
 print ("Bem-vindo ao sistema bancario")
 
-escolha = ""
+while True:
 
-while escolha != "0":
   escolha = input("Selecione uma opcao:\n1 - Cliente\n2 - Gerente\n3 - Salvar alteracoes em disco\n0 - Sair\n")
+
   if escolha == "1": ## CLIENTE
     cliente_opcoes = input("Selecione uma opcao:\n1 - Consultar saldo\n2 - Depositar valor\n3 - Sacar valor\n4 - Simular rendimento\n5 - Listar ultimas transacoes (extrato)\n6 - Sair\n")
+
     if cliente_opcoes == "1":
       print("Consultar saldo")
     elif cliente_opcoes == "2":
@@ -44,15 +44,22 @@ while escolha != "0":
       continue
     else:
       print("Opcao invalida")
+
   elif escolha == "2": ## GERENTE 
-    gerente_acesso = input("Informe a senha:\t")
-    while gerente_acesso != senha_gerente:
+    login_gerente = input("Informe o login:\t")
+    senha_gerente = input("Informe a senha:\t")
+    while login_gerente != login_g or senha_gerente != senha_g:
       print("Senha incorreta")
-      gerente_acesso = input("Informe a senha:\t")
+      login_gerente = input("Informe o login:\t")
+      senha_gerente = input("Informe a senha:\t")
       tentativa += 1
       if tentativa == 3:
+        print("Senha inválida...\tTente Novamente")
         break
+
+
     gerente_opcoes = input("Selecione uma opcao:\n1 - Criar conta\n2 - Depositar valor\n3 - Sacar valor\n4 - Simular rendimento\n5 - Listar ultimas transacoes (extrato)\n6 - Sair\n")
+ 
   elif escolha == "3": ## SALVAR ALTERACOES EM DISCO
     salvar_alteracoes = input("Deseja salvar as alteracoes em disco? (s/n)")
     if salvar_alteracoes == "s":
@@ -61,6 +68,8 @@ while escolha != "0":
       print("Alteracoes salvas com sucesso")
     else:
       print("Alteracoes nao salvas")
+ 
+ 
   elif escolha == "0": ## SAIR
     break
   else:
