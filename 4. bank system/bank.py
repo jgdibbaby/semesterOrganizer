@@ -38,6 +38,7 @@ while True:
     
     if cliente_opcoes == "1": 
       print("Consultar saldo")
+      
 
     elif cliente_opcoes == "2":
 
