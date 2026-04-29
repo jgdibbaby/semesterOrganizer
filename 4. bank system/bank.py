@@ -34,41 +34,50 @@ while True:
 ## ------------ MODO CLIENTE ------------ ##
 
   if escolha == "1": 
-    cliente_opcoes = input("Selecione uma opcao:\n1 - Consultar saldo\n2 - Depositar valor\n3 - Sacar valor\n4 - Simular rendimento\n5 - Listar ultimas transacoes (extrato)\n6 - Sair\n")
-    
-    if cliente_opcoes == "1": 
-      print("Consultar saldo")
-      
+    login_cliente = input("Informe o login:\t")
 
-    elif cliente_opcoes == "2":
-
-      valor_deposito = float(input("Informe o valor a ser depositado: "))
-
-      if valor_deposito != 0:
-        dados["cliente"] = {
-          "saldo": valor_deposito,
-          "extrato": [
-            datetime.now().strftime("%d/%m/%Y %H:%M:%S") + " - Deposito: R$ " + str(valor_deposito)
-          ]
-        }
-
-        try:
-          with open(db, "wb") as f:
-            pickle.dump(dados, f)
-          print("Depósito realizado e salvo com sucesso!")
-        except Exception as e:
-          print(f"Erro ao salvar: {e}")
-
-    elif cliente_opcoes == "3":
-      print("Sacar valor")
-    elif cliente_opcoes == "4":
-      print("Simular rendimento")
-    elif cliente_opcoes == "5":
-      print("Listar ultimas transacoes (extrato)")
-    elif cliente_opcoes == "6":
-      continue
+    if login_cliente not in dados:
+        print("Cliente não encontrado!")
+        continue  
     else:
-      print("Opcao invalida")
+      print(f"\nBem-vindo(a), {nome_cliente}!")
+      cliente_atual = login_cliente
+      while True:
+
+        cliente_opcoes = input("Selecione uma opcao:\n1 - Consultar saldo\n2 - Depositar valor\n3 - Sacar valor\n4 - Simular rendimento\n5 - Listar ultimas transacoes (extrato)\n6 - Sair\n")
+      
+        if cliente_opcoes == "1": 
+          print("Consultar saldo")
+          
+
+        elif cliente_opcoes == "2":
+            valor_deposito = float(input("Informe o valor a ser depositado: "))
+            if valor_deposito > 0:
+                  # Atualiza o saldo no dicionário local e na base principal
+                  cliente_atual['saldo'] += valor_deposito
+                  
+                  # Registra a transação no extrato
+                  data_hora = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                  cliente_atual['extrato'].append(f"{data_hora} - Deposito: R$ {valor_deposito:.2f}")
+                  
+                  print("Depósito realizado com sucesso!")
+
+        elif cliente_opcoes == "3":
+          print("Sacar valor")
+
+        elif cliente_opcoes == "4":
+          print("Simular rendimento")
+
+        elif cliente_opcoes == "5":
+
+          print("--- EXTRATO ---")
+          for transacao in cliente_atual['extrato']:
+              print(transacao)
+
+        elif cliente_opcoes == "6":
+          break
+        else:
+          print("Opcao invalida")
 
 ## ------------ MODO GERENTE ------------ ##
 
@@ -94,19 +103,16 @@ while True:
         saldo_cliente = float(input("Informe o saldo do cliente:\t"))
 
         if nome_cliente and saldo_cliente:
-            dados["cliente"] = {
-              "nome": nome_cliente,
-              "saldo": saldo_cliente,
-              "extrato": [
-            datetime.now().strftime("%d/%m/%Y %H:%M:%S") + " - Saldo: R$ " + str(saldo_cliente)
-          ]
+            
+            dados[nome_cliente] = {
+                "nome": nome_cliente,
+                "saldo": saldo_cliente,
+                "extrato": [
+                    f"{datetime.now().strftime('%d/%m/%Y %H:%M:%S')} - Abertura: R$ {saldo_cliente}"
+                ]
             }
-
-            with open(db, "wb") as f:
-              pickle.dump(dados, f)
-            print("Cliente cadastrado com sucesso!")
-        else:
-            print("Erro ao cadastrar cliente!")
+            print(f"Cliente {nome_cliente} cadastrado com sucesso!")
+            
     elif gerente_opcoes == "2":
       novo_saldo = input("Informe o novo saldo do cliente:\t")
       if novo_saldo:
